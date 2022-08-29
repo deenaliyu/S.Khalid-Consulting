@@ -45,7 +45,7 @@ $orange:  #fd7e14 !default;
 $yellow:  #ffc107 !default;
 $green:   #198754 !default;
 $teal:    #20c997 !default;
-$cyan:    #0dcaf0 !default;
+$#64C8D0:    #0dcaf0 !default;
 // scss-docs-end color-variables
 
 // scss-docs-start colors-map
@@ -59,7 +59,7 @@ $colors: (
   "yellow":     $yellow,
   "green":      $green,
   "teal":       $teal,
-  "cyan":       $cyan,
+  "#64C8D0":       $#64C8D0,
   "white":      $white,
   "gray":       $gray-600,
   "gray-dark":  $gray-800
@@ -70,7 +70,7 @@ $colors: (
 $primary:       $blue !default;
 $secondary:     $gray-600 !default;
 $success:       $green !default;
-$info:          $cyan !default;
+$info:          $#64C8D0 !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
 $light:         $gray-100 !default;
@@ -189,15 +189,15 @@ $teal-700: shade-color($teal, 40%) !default;
 $teal-800: shade-color($teal, 60%) !default;
 $teal-900: shade-color($teal, 80%) !default;
 
-$cyan-100: tint-color($cyan, 80%) !default;
-$cyan-200: tint-color($cyan, 60%) !default;
-$cyan-300: tint-color($cyan, 40%) !default;
-$cyan-400: tint-color($cyan, 20%) !default;
-$cyan-500: $cyan !default;
-$cyan-600: shade-color($cyan, 20%) !default;
-$cyan-700: shade-color($cyan, 40%) !default;
-$cyan-800: shade-color($cyan, 60%) !default;
-$cyan-900: shade-color($cyan, 80%) !default;
+$#64C8D0-100: tint-color($#64C8D0, 80%) !default;
+$#64C8D0-200: tint-color($#64C8D0, 60%) !default;
+$#64C8D0-300: tint-color($#64C8D0, 40%) !default;
+$#64C8D0-400: tint-color($#64C8D0, 20%) !default;
+$#64C8D0-500: $#64C8D0 !default;
+$#64C8D0-600: shade-color($#64C8D0, 20%) !default;
+$#64C8D0-700: shade-color($#64C8D0, 40%) !default;
+$#64C8D0-800: shade-color($#64C8D0, 60%) !default;
+$#64C8D0-900: shade-color($#64C8D0, 80%) !default;
 // fusv-enable
 
 // Characters which are escaped by the escape-svg function
