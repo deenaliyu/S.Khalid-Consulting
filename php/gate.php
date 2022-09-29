@@ -29,12 +29,12 @@ function createPropertyListing(){
     $bathroom = $_POST['bathroom'];
     $availability = $_POST['availability'];
 
-    $query_User_re = sprintf("INSERT INTO property_L (`listing_type`, `image`, `property_type`, `price`, `description`, `location`, `land_size`, `bed_space`, `bathroom`, `availability`)
-                            VALUES('$listing_type', '$image', '$property_type', '$price', '$description', '$location', '$land_size', '$bed_space', '$bathroom', $availability)");
+    $query_User_re = sprintf("INSERT INTO property_l (`listing_type`, `image`, `property_type`, `price`, `description`, `location`, `land_size`, `bed_space`, `bathroom`, `availability`)
+                            VALUES('$listing_type', '$image', '$property_type', '$price', '$description', '$location', '$land_size', '$bed_space', '$bathroom', '$availability')");
     $User_re = mysqli_query($sKhalid, $query_User_re) or die(mysqli_error($sKhalid));
-    $row_User_re = mysqli_fetch_assoc($User_re);
-    $totalRows_User_re = mysqli_num_rows($User_re);
-    if ($totalRows_User_re > 0) {
+    // $row_User_re = mysqli_fetch_assoc($User_re);
+    // $totalRows_User_re = mysqli_num_rows($User_re);
+    if ($User_re ) {
             $arr = [
                 'status' => 1,'message' => "property added successfully"
             ];

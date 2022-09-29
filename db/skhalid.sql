@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 28, 2022 at 05:46 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Host: localhost
+-- Generation Time: Sep 29, 2022 at 01:23 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -65,6 +65,14 @@ CREATE TABLE `property_l` (
   `availability` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `property_l`
+--
+
+INSERT INTO `property_l` (`id`, `listing_type`, `image`, `property_type`, `price`, `description`, `location`, `land_size`, `bed_space`, `bathroom`, `availability`) VALUES
+(1, 'rent', 'IMG-20220926-WA0024.jpg', 'Duplex', '2000000', 'Golden Urban House For Sell', 'MM Way', '2sqrt', '3', '2', 'sale'),
+(2, 'rent', 'IMG-20220926-WA0023.jpg', 'Duplex', '2000000', 'Golden Urban House For Sell', 'MM Way', '2sqrt', '3', '2', 'sold');
+
 -- --------------------------------------------------------
 
 --
@@ -117,7 +125,7 @@ ALTER TABLE `agent`
 -- AUTO_INCREMENT for table `property_l`
 --
 ALTER TABLE `property_l`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `property_mangers`
