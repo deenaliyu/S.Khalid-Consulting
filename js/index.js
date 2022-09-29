@@ -21,7 +21,7 @@ $('#footer').html(`
     <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
     <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
   </div>
-  <div class="col-lg-3 col-md-6">
+  <div class="col-lg-6 col-md-6">
     <h5 class="text-white mb-4">Photo Gallery</h5>
     <div class="row g-2 pt-2">
       <div class="col-4">
@@ -44,24 +44,16 @@ $('#footer').html(`
       </div>
     </div>
   </div>
-  <div class="col-lg-3 col-md-6">
-    <h5 class="text-white mb-4">Newsletter</h5>
-    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-    <div class="position-relative mx-auto" style="max-width: 400px;">
-      <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-      <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-    </div>
-  </div>
 </div>
 </div>
 <div class="container">
 <div class="copyright">
   <div class="row">
     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-      &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+      &copy; <a class="border-bottom" href="#">S.Khalid</a>, All Right Reserved.
 
       <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-      Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+      Designed By <a class="border-bottom" href="#">HTML Codex</a>
     </div>
     <div class="col-md-6 text-center text-md-end">
       <div class="footer-menu">
@@ -138,34 +130,38 @@ $('#theHeader').html(`
 `)
 let HOST = "http://localhost:8080/S.Khalid-Consulting/php"
 const fetchProperties = async () => {
-  const response = await fetch(`${HOST}/?fetchProp&availability=sale`)
+  const response = await fetch(`${HOST}/?fetchProp`)
   const properties = await response.json()
 
   console.log(properties)
-  $('#showContent').append(`
+
+  properties.map(property => {
+    $('#showContent').append(`
     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
       <div class="property-item rounded overflow-hidden">
         <div class="position-relative overflow-hidden">
-          <a href=""><img class="img-fluid" src="img/property-2.jpg" alt=""></a>
+          <a href=""><img class="img-fluid" src="img/${property.image}" alt=""></a>
           <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Rent
           </div>
           <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
-            Villa</div>
+            ${property.property_type}</div>
         </div>
         <div class="p-4 pb-0">
-          <h5 class="text-primary mb-3">$12,345</h5>
-          <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
-          <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York, USA</p>
+          <h5 class="text-primary mb-3">&#8358; ${property.price}</h5>
+          <a class="d-block h5 mb-2" href="">${property.description}</a>
+          <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${property.location}</p>
         </div>
         <div class="d-flex border-top">
           <small class="flex-fill text-center border-end py-2"><i
-              class="fa fa-ruler-combined text-primary me-2"></i>1000 Sqft</small>
-          <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>3
+              class="fa fa-ruler-combined text-primary me-2"></i>${property.land_size}</small>
+          <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>${property.bed_space}
             Bed</small>
-          <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
+          <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>${property.bathroom} Bath</small>
         </div>
       </div>
     </div>
   `)
+  })
+
 }
 fetchProperties()
