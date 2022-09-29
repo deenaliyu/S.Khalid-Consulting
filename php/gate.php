@@ -8,11 +8,11 @@ function fetchProperty(){
     $row_User_re = mysqli_fetch_assoc($User_re);
     $totalRows_User_re = mysqli_num_rows($User_re);
     if ($totalRows_User_re > 0) {
-            $arr = [
-                'status' => 1,'Property_id' => $row_User_re['id'], 'image' => $row_User_re['image'], 'listing_type' => $row_User_re['listing_type'], 'property_type' => $row_User_re['property_type'], 'price' => $row_User_re['price'],
-                'description' => $row_User_re['description'], 'location' => $row_User_re['location'], 'land_size' => $row_User_re['land_size'], 'bed space' => $row_User_re['bed_space'], 'bathroom' => $row_User_re['bathroom']
-            ];
-            exit(json_encode($arr));
+            $cc = [];
+            do {
+                $cc[] = $row_User_re;
+            } while ($row_User_re = mysqli_fetch_assoc($User_re));
+            exit(json_encode($cc));
     }
 }
 
