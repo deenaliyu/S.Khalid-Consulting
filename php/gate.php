@@ -2,8 +2,8 @@
 
 function fetchProperty(){
     include "config/index.php";
-    $availability = 'sale';
-    $query_User_re = sprintf("SELECT * FROM property_l WHERE `availability` = '$availability'");
+    $availability = "sale";
+    $query_User_re = sprintf("SELECT * FROM property_l WHERE `availability` = $availability");
     $User_re = mysqli_query($sKhalid, $query_User_re) or die(mysqli_error($sKhalid));
     $row_User_re = mysqli_fetch_assoc($User_re);
     $totalRows_User_re = mysqli_num_rows($User_re);
