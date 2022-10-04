@@ -51,8 +51,12 @@
     object-fit: contain;
 }
 
+.team-item .position-relative {
+    height: 400px
+}
+
 .team-item img {
-    height: 330px;
+    height: 100%;
     width: 100%;
     object-fit: cover;
 }
