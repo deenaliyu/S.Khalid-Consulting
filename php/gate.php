@@ -31,8 +31,7 @@ function fetchProperty(){
 
 // upload details
 $target_dir = "uploads/";
-$target_file = $target_dir
-	. basename($_FILES["image"]["name"]);
+$target_file = $target_dir.basename($_FILES["image"]["name"]);
 $uploadOk = 1;
 if($_SERVER["REQUEST_METHOD"] == "POST") {
         

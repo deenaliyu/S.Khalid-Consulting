@@ -128,8 +128,8 @@ $('#theHeader').html(`
   </div>
 </div>
 `)
-let HOST = "http://localhost:8080/S.Khalid-Consulting/php"
-// let HOST = "http://localhost/sKhalid/php"
+// let HOST = "http://localhost:8080/S.Khalid-Consulting/php"
+let HOST = "http://localhost/sKhalid/php"
 const fetchProperties = async () => {
   const response = await fetch(`${HOST}/?fetchProp`)
   const properties = await response.json()
@@ -138,13 +138,10 @@ const fetchProperties = async () => {
     <div class="col-lg-4 col-md-6 propCard wow fadeInUp" data-wow-delay="0.3s" data-id="${property.id}" style="cursor: pointer">
       <div class="property-item rounded overflow-hidden">
         <div class="position-relative overflow-hidden">
-<<<<<<< HEAD
           <a href=""><img class="img-fluid" src="img/${property.image}" alt=""></a>
           <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">${property.listing_type}
-=======
           <img class="img-fluid" src="img/${property.image}" alt="">
           <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Rent
->>>>>>> 2f421dea6dafceb282aad7064560a5ee0fc2b071
           </div>
           <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
             ${property.property_type}</div>
