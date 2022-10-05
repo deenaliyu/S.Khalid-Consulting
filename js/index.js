@@ -93,12 +93,12 @@ $('#navBar').html(`
       </div>
     </div>
     <!-- <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu rounded-0 m-0">
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Error</a>
-                    </div>
-                </div> -->
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+        <div class="dropdown-menu rounded-0 m-0">
+            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+            <a href="404.html" class="dropdown-item">404 Error</a>
+        </div>
+    </div> -->
     <a href="about.html" class="nav-item nav-link">About</a>
     <a href="contact.html" class="nav-item nav-link">Contact</a>
   </div>
@@ -119,30 +119,32 @@ $('#theHeader').html(`
   <div class="col-md-6 animated fadeIn">
     <div class="owl-carousel header-carousel">
       <div class="owl-carousel-item">
-        <img class="img-fluid" src="img/carousel-1.jpg" alt="">
+        <img class="img-fluid" src="img/IMG-20220926-WA0056.jpg" alt="">
       </div>
       <div class="owl-carousel-item">
-        <img class="img-fluid" src="img/carousel-2.jpg" alt="">
+        <img class="img-fluid" src="img/IMG-20220926-WA0053.jpg" alt="">
       </div>
     </div>
   </div>
 </div>
 `)
-// let HOST = "http://localhost:8080/S.Khalid-Consulting/php"
-let HOST = "http://localhost/sKhalid/php"
+let HOST = "http://localhost:8080/S.Khalid-Consulting/php"
+// let HOST = "http://localhost/sKhalid/php"
 const fetchProperties = async () => {
   const response = await fetch(`${HOST}/?fetchProp`)
   const properties = await response.json()
-
-  console.log(properties)
-
   properties.map(property => {
     $('#showContent').append(`
-    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+    <div class="col-lg-4 col-md-6 propCard wow fadeInUp" data-wow-delay="0.3s" data-id="${property.id}" style="cursor: pointer">
       <div class="property-item rounded overflow-hidden">
         <div class="position-relative overflow-hidden">
+<<<<<<< HEAD
           <a href=""><img class="img-fluid" src="img/${property.image}" alt=""></a>
           <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">${property.listing_type}
+=======
+          <img class="img-fluid" src="img/${property.image}" alt="">
+          <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Rent
+>>>>>>> 2f421dea6dafceb282aad7064560a5ee0fc2b071
           </div>
           <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
             ${property.property_type}</div>
@@ -162,6 +164,12 @@ const fetchProperties = async () => {
       </div>
     </div>
   `)
+  })
+  let propCards = document.querySelectorAll('.propCard')
+  propCards.forEach(propCard => {
+    propCard.addEventListener('click', () => {
+      window.location.href = `property.html?${propCard.dataset.id}`
+    })
   })
 
 }
