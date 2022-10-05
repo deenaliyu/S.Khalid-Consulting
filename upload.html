@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>S.Khalid Consulting</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicon -->
+  <link href="img/favicon.ico" rel="icon">
+
+ 
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="row p-5 justify-content-center bg-white">
+    <div class="col-md-5">
+      <form action="php/gate.php" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="" class="form-label">Listing_Type</label>
+          <input type="text" class="form-control" id="Listing_type" name="listing_type" >
+        </div>
+        <div class="mb-3">
+          <input type="file" id="image" name="image" class="form-control" accept="image/jpeg, image/png, image/jpg">
+          <div id="display-image"></div>
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Property-type</label>
+          <input type="text" class="form-control" id="property_type" name="property_type">
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Price</label>
+          <input type="text" class="form-control" id="price" name="price">
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Description</label>
+          <input type="text" class="form-control" id="description" name="description">
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Location</label>
+          <input type="text" class="form-control" id="location" name="location">
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Land Size</label>
+          <input type="text" class="form-control" id="land_size" name="land_size">
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Bed Space</label>
+          <input type="text" class="form-control" id="bed_space" name="bed_space">
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Bathroom</label>
+          <input type="text" class="form-control" id="bathroom" name="bathroom">
+        </div>
+        <button type="submit" class="btn btn-lg btn-primary" id="upload" name="submit">Submit</button>
+      </form>
+    </div>
+   
+  </div>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery-3.3.1.min.js"></script>
+  <script src="./js/upload.js"></script>
+</body>
+
+</html>
