@@ -20,7 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
 } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include 'gate.php';
-    if (isset($_POST['updateProperty'])) {
+    if (isset($_POST['createProperty'])) {
+        createPropertyListing($_POST);
+    } elseif (isset($_POST['updateProperty'])) {
         updatePropertyListing($_POST);
     } elseif (isset($_POST['createAgent'])) {
         createAgent($_POST);
