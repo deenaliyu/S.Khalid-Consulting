@@ -494,3 +494,11 @@
     padding-right: 0;
     border-right: none;
 }
+
+#display-image{
+    width: auto;
+    height: 225px;
+    border: 1px solid #26C49F;
+    background-position: center;
+    background-size: cover;
+  }
