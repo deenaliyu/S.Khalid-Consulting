@@ -329,6 +329,9 @@
 
 .property-item img {
     transition: .5s;
+    height: 300px;
+    object-fit: cover;
+    width: 100%;
 }
 
 .property-item:hover img {

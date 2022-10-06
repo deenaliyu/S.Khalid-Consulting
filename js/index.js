@@ -7,19 +7,17 @@ $('#footer').html(`
     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
     <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
     <div class="d-flex pt-2">
-      <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-      <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-      <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-      <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+      <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-twitter"></i></a>
+      <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-facebook-f"></i></a>
+      <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-youtube"></i></a>
+      <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-linkedin-in"></i></a>
     </div>
   </div>
   <div class="col-lg-3 col-md-6">
     <h5 class="text-white mb-4">Quick Links</h5>
-    <a class="btn btn-link text-white-50" href="">About Us</a>
-    <a class="btn btn-link text-white-50" href="">Contact Us</a>
-    <a class="btn btn-link text-white-50" href="">Our Services</a>
-    <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
-    <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+    <a class="btn btn-link text-white-50" href="#about-section">About Us</a>
+    <a class="btn btn-link text-white-50" href="#contact-section">Contact Us</a>
+    <a class="btn btn-link text-white-50" href="#service-section">Our Services</a>
   </div>
   <div class="col-lg-6 col-md-6">
     <h5 class="text-white mb-4">Photo Gallery</h5>
@@ -124,8 +122,8 @@ const fetchProperties = async () => {
     <div class="col-lg-4 col-md-6 propCard wow fadeInUp" data-wow-delay="0.3s" data-id="${property.id}" style="cursor: pointer">
       <div class="property-item rounded overflow-hidden">
         <div class="position-relative overflow-hidden">
-          <img class="img-fluid" src="img/${property.image}" alt="">
-          <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For ${property.availability}
+          <img class="img-fluid" src="img/properties/${property.image}" alt="">
+          <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For ${property.listing_type}
           </div>
           <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
             ${property.property_type}</div>
@@ -139,8 +137,8 @@ const fetchProperties = async () => {
           <small class="flex-fill text-center border-end py-2"><i
               class="fa fa-ruler-combined text-primary me-2"></i>${property.land_size}</small>
           <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>${property.bed_space}
-            Bed</small>
-          <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>${property.bathroom} Bath</small>
+            Bedroom</small>
+          <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>${property.bathroom} Bathroom</small>
         </div>
       </div>
     </div>
