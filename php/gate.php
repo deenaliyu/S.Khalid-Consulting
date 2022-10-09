@@ -31,124 +31,171 @@ function fetchProperty(){
 
 
 function createPropertyListing(){
-    include "config/index.php";
 
+include "config/index.php"; // include database connection file
+
+	
+$fileName  =  $_FILES['image']['name'];
+$tempPath  =  $_FILES['image']['tmp_name'];
+$fileSize  =  $_FILES['image']['size'];
+		
+if(empty($fileName))
+{
+	$errorMSG = json_encode(array("message" => "please select image", "status" => false));	
+	echo $errorMSG;
+}
+else
+{
+	$upload_path = '../img/uploads/'; // set upload folder path 
+	
+	$fileExt = strtolower(pathinfo($fileName,PATHINFO_EXTENSION)); // get image extension
+		
+	// valid image extensions
+	$valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); 
+					
+	// allow valid image file formats
+	if(in_array($fileExt, $valid_extensions))
+	{				
+		//check file not exist our upload folder path
+		if(!file_exists($upload_path . $fileName))
+		{
+			// check file size '5MB'
+			if($fileSize < 5000000){
+				move_uploaded_file($tempPath, $upload_path . $fileName); // move file from system temporary path to our upload folder path 
+			}
+			else{		
+				$errorMSG = json_encode(array("message" => "Sorry, your file is too large, please upload 5 MB size", "status" => false));	
+				echo $errorMSG;
+			}
+		}
+		else
+		{		
+			$errorMSG = json_encode(array("message" => "Sorry, file already exists check upload folder", "status" => false));	
+			echo $errorMSG;
+		}
+	}
+	else
+	{		
+		$errorMSG = json_encode(array("message" => "Sorry, only JPG, JPEG, PNG & GIF files are allowed", "status" => false));	
+		echo $errorMSG;		
+	}
+}
+		
+// if no error caused, continue ....
+if(!isset($errorMSG))
+{
     $listing_type = $_POST['listing_type'];
-    $image = $_POST['image'];
     $property_type = $_POST['property_type'];
     $price = $_POST['price'];
     $description = $_POST['description'];
-    $location = $_POST['location'];
+    $location = $_POST['locat'];
     $land_size = $_POST['land_size'];
     $bed_space = $_POST['bed_space'];
     $bathroom = $_POST['bathroom'];
-    $availability = $_POST['availability'];
-
-    $query_User_re = sprintf("INSERT INTO property_l (`listing_type`, `image`, `property_type`, `price`, `description`, `location`, `land_size`, `bed_space`, `bathroom`, `availability`)
-                    VALUES('$listing_type', '$image', '$property_type', '$price', '$description', '$location', '$land_size', '$bed_space', '$bathroom', '$availability')");
-                $User_re = mysqli_query($sKhalid, $query_User_re) or die(mysqli_error($sKhalid));
-                // $row_User_re = mysqli_fetch_assoc($User_re);
-                // $totalRows_User_re = mysqli_num_rows($User_re);
-                if ($User_re ) {
-                $arr = [
-                'status' => 1,'message' => "property added successfully"
-                ];
-               exit(json_encode($arr));
-               }
+    $availability = "sale";
+    
+                  $query_User_re = sprintf("INSERT INTO property_l (`listing_type`, `image`, `property_type`, `price`, `description`, `location`, `land_size`, `bed_space`, `bathroom`, `availability`)
+                  VALUES('$listing_type', '$fileName', '$property_type', '$price', '$description', '$location', '$land_size', '$bed_space', '$bathroom', '$availability')");
+              $User_re = mysqli_query($sKhalid, $query_User_re) or die(mysqli_error($sKhalid));
+              // $row_User_re = mysqli_fetch_assoc($User_re);
+              // $totalRows_User_re = mysqli_num_rows($User_re);
+              if ($User_re ) {
+              $arr = [
+              'status' => 1,'message' => "property added successfully"
+              ];
+              exit(json_encode($arr));
+              }	
+}
 }
 
-// upload details
-// $target_dir = "../img/uploads/";
-// $target_file = $target_dir.basename($_FILES["image"]["name"]);
-// $uploadOk = 1;
-// if($_SERVER["REQUEST_METHOD"] == "POST") {
-        
-//      // Check if file was uploaded without errors
-//      if(isset($_FILES["image"]) && 
-//      $_FILES["image"]["error"] == 0) {
-//         include "config/index.php";
-//      $allowed_ext = array("jpg" => "image/jpg",
-//                          "jpeg" => "image/jpeg",
-//                          "gif" => "image/gif",
-//                          "png" => "image/png");
-//      $file_name = $_FILES["image"]["name"];
-//      $file_type = $_FILES["image"]["type"];
-//      $file_size = $_FILES["image"]["size"];
-//      $listing_type = $_POST['listing_type'];
-//      $property_type = $_POST['property_type'];
-//      $price = $_POST['price'];
-//      $description = $_POST['description'];
-//      $location = $_POST['location'];
-//      $land_size = $_POST['land_size'];
-//      $bed_space = $_POST['bed_space'];
-//      $bathroom = $_POST['bathroom'];
-//      $availability = "sale";
-//      // Verify file extension
-//      $ext = pathinfo($file_name, PATHINFO_EXTENSION);
-
-//      if (!array_key_exists($ext, $allowed_ext)) {
-//          die("Error: Please select a valid file format.");
-//      }    
-           
-//      // Verify file size - 2MB max
-//      $maxsize = 2 * 1024 * 1024;
-       
-//      if ($file_size > $maxsize) {
-//          die("Error: File size is larger than the allowed limit.");
-//      }                    
-   
-//      // Verify MYME type of the file
-//      if (in_array($file_type, $allowed_ext))
-//      {
-//          // Check whether file exists before uploading it
-//          if (file_exists("../img/uploads/" . $_FILES["image"]["name"])) {
-//              echo $_FILES["image"]["name"]." is already exists.";
-//          }        
-//          else {
-//              if (move_uploaded_file($_FILES["image"]["tmp_name"], 
-//                $target_file)) {
-//                    $query_User_re = sprintf("INSERT INTO property_l (`listing_type`, `image`, `property_type`, `price`, `description`, `location`, `land_size`, `bed_space`, `bathroom`, `availability`)
-//                    VALUES('$listing_type', '$file_name', '$property_type', '$price', '$description', '$location', '$land_size', '$bed_space', '$bathroom', '$availability')");
-//                $User_re = mysqli_query($sKhalid, $query_User_re) or die(mysqli_error($sKhalid));
-//                // $row_User_re = mysqli_fetch_assoc($User_re);
-//                // $totalRows_User_re = mysqli_num_rows($User_re);
-//                if ($User_re ) {
-//                $arr = [
-//                'status' => 1,'message' => "property added successfully"
-//                ];
-//                exit(json_encode($arr));
-//                }
-//              } 
-//              else {
-//                  echo "Sorry, there was an error uploading your file.";
-//              }
-//          }
-//      }
-//      else {
-//          echo "Error: Please try again.";
-//      }
-//  }
-//  else {
-//      echo "Error: ". $_FILES["image"]["error"];
-//  }
-
-// } 
-
-
 function updatePropertyListing(){
-    include "config/index.php";
-    $id = $_POST['id'];
-    $listing_type = $_POST['listing_type'];
-    $image = $_POST['image'];
-    $property_type = $_POST['property_type'];
-    $price = $_POST['price'];
-    $description = $_POST['description'];
-    $location = $_POST['location'];
-    $land_size = $_POST['land_size'];
-    $bed_space = $_POST['bed_space'];
-    $bathroom = $_POST['bathroom'];
-    $availability = $_POST['availability'];
+    
 
+// $error=array();
+// $extension=array("jpeg","jpg","png","gif");
+// foreach($_FILES["files"]["tmp_name"] as $key=>$tmp_name) {
+//     $file_name=$_FILES["files"]["name"][$key];
+//     $file_tmp=$_FILES["files"]["tmp_name"][$key];
+//     $ext=pathinfo($file_name,PATHINFO_EXTENSION);
+
+//     if(in_array($ext,$extension)) {
+//         if(!file_exists("photo_gallery/".$txtGalleryName."/".$file_name)) {
+//             move_uploaded_file($file_tmp=$_FILES["files"]["tmp_name"][$key],"photo_gallery/".$txtGalleryName."/".$file_name);
+//         }
+//         else {
+//             $filename=basename($file_name,$ext);
+//             $newFileName=$filename.time().".".$ext;
+//             move_uploaded_file($file_tmp=$_FILES["files"]["tmp_name"][$key],"photo_gallery/".$txtGalleryName."/".$newFileName);
+//         }
+//     }
+//     else {
+//         array_push($error,"$file_name, ");
+//     }
+// }
+    include "config/index.php"; // include database connection file
+
+	
+    $fileName  =  $_FILES['image']['name'];
+    $tempPath  =  $_FILES['image']['tmp_name'];
+    $fileSize  =  $_FILES['image']['size'];
+            
+    if(empty($fileName))
+    {
+        $errorMSG = json_encode(array("message" => "please select image", "status" => false));	
+        echo $errorMSG;
+    }
+    else
+    {
+        $upload_path = '../img/uploads/'; // set upload folder path 
+        
+        $fileExt = strtolower(pathinfo($fileName,PATHINFO_EXTENSION)); // get image extension
+            
+        // valid image extensions
+        $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); 
+                        
+        // allow valid image file formats
+        if(in_array($fileExt, $valid_extensions))
+        {				
+            //check file not exist our upload folder path
+            if(!file_exists($upload_path . $fileName))
+            {
+                // check file size '5MB'
+                if($fileSize < 5000000){
+                    move_uploaded_file($tempPath, $upload_path . $fileName); // move file from system temporary path to our upload folder path 
+                }
+                else{		
+                    $errorMSG = json_encode(array("message" => "Sorry, your file is too large, please upload 5 MB size", "status" => false));	
+                    echo $errorMSG;
+                }
+            }
+            else
+            {		
+                $errorMSG = json_encode(array("message" => "Sorry, file already exists check upload folder", "status" => false));	
+                echo $errorMSG;
+            }
+        }
+        else
+        {		
+            $errorMSG = json_encode(array("message" => "Sorry, only JPG, JPEG, PNG & GIF files are allowed", "status" => false));	
+            echo $errorMSG;		
+        }
+    }
+            
+    // if no error caused, continue ....
+    if(!isset($errorMSG))
+    {
+        $id = $_POST['id'];
+        $listing_type = $_POST['listing_type'];
+        $property_type = $_POST['property_type'];
+        $price = $_POST['price'];
+        $description = $_POST['description'];
+        $location = $_POST['locat'];
+        $land_size = $_POST['land_size'];
+        $bed_space = $_POST['bed_space'];
+        $bathroom = $_POST['bathroom'];
+        $availability = "sale";
+        
+                  
     $query_User_re = sprintf("UPDATE property_l SET `listing_type`= '$listing_type', `image` = '$image', `property_type`= '$property_type', `price` = '$price', `description` = '$description', `location` = '$location', `land_size` = '$land_size', `bed_space` = '$bed_space', `bathroom` = '$bathroom', `availability` = '$availability' WHERE id = '$id'");
     $User_re = mysqli_query($sKhalid, $query_User_re) or die(mysqli_error($sKhalid));
     $row_User_re = mysqli_fetch_assoc($User_re);
@@ -163,6 +210,7 @@ function updatePropertyListing(){
             'status' => 0,'message' => "Failed to add Property"
         ];
         exit(json_encode($arr));
+    }
     }
 }
 

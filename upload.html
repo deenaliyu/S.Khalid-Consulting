@@ -11,7 +11,19 @@
   <!-- Favicon -->
   <link href="img/favicon.ico" rel="icon">
 
- 
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
   <!-- Customized Bootstrap Stylesheet -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -21,54 +33,90 @@
 </head>
 
 <body>
-  <div class="row p-5 justify-content-center bg-white">
-    <div class="col-md-5">
-      <form action="php/gate.php" method="POST" enctype="multipart/form-data">
-        <div class="mb-3">
-          <label for="" class="form-label">Listing_Type</label>
-          <input type="text" class="form-control" id="Listing_type" name="listing_type" >
+  <div class="container">
+    <ul class="nav nav-pills mb-3 pt-5 justify-content-center" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Upload Properties</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Update Properties</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <div class="row p-5 justify-content-center bg-white">
+          <div class="col-md-5">
+            <form id="form" method="POST"  enctype="multipart/form-data">
+              <div class="mb-3">
+                <label for="" class="form-label">Listing_Type</label>
+                <input type="text" class="form-control" id="ltype" aria-describedby="">
+              </div>
+              <div class="mb-3">
+                <input type="file" id="image" name="image" class="form-control">
+                <div id="display-image"></div>
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">Property-type</label>
+                <input type="text" class="form-control" id="ptype">
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">Price</label>
+                <input type="text" class="form-control" id="price">
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">Description</label>
+                <input type="text" class="form-control" id="descrpyt">
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">Location</label>
+                <input type="text" class="form-control" id="locat">
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">Land Size</label>
+                <input type="text" class="form-control" id="landS">
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">Bed Space</label>
+                <input type="text" class="form-control" id="bspace">
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">Bathroom</label>
+                <input type="text" class="form-control" id="bathroom">
+              </div>
+              <button type="submit" class="btn btn-lg btn-primary" id="upload">Submit</button>
+            </form>
+          </div>
+         
         </div>
-        <div class="mb-3">
-          <input type="file" id="image" name="image" class="form-control" accept="image/jpeg, image/png, image/jpg">
-          <div id="display-image"></div>
+      </div>
+      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <div class="container-xxl py-5">
+          <div class="container">
+            <div class="tab-content">
+              <div id="tab-1" class="tab-pane fade show p-0 active">
+                <div class="row g-4" id="showContent">
+    
+                </div>
+              </div>
+    
+            </div>
+            </div>
         </div>
-        <div class="mb-3">
-          <label for="" class="form-label">Property-type</label>
-          <input type="text" class="form-control" id="property_type" name="property_type">
-        </div>
-        <div class="mb-3">
-          <label for="" class="form-label">Price</label>
-          <input type="text" class="form-control" id="price" name="price">
-        </div>
-        <div class="mb-3">
-          <label for="" class="form-label">Description</label>
-          <input type="text" class="form-control" id="description" name="description">
-        </div>
-        <div class="mb-3">
-          <label for="" class="form-label">Location</label>
-          <input type="text" class="form-control" id="location" name="location">
-        </div>
-        <div class="mb-3">
-          <label for="" class="form-label">Land Size</label>
-          <input type="text" class="form-control" id="land_size" name="land_size">
-        </div>
-        <div class="mb-3">
-          <label for="" class="form-label">Bed Space</label>
-          <input type="text" class="form-control" id="bed_space" name="bed_space">
-        </div>
-        <div class="mb-3">
-          <label for="" class="form-label">Bathroom</label>
-          <input type="text" class="form-control" id="bathroom" name="bathroom">
-        </div>
-        <button type="submit" class="btn btn-lg btn-primary" id="upload" name="submit">Submit</button>
-      </form>
+      </div>
+      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
     </div>
-   
   </div>
+ 
+  
 
   <!-- JavaScript Libraries -->
   <script src="lib/jquery-3.3.1.min.js"></script>
   <script src="./js/upload.js"></script>
+  <script src="./js/updateP.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
 </body>
 
 </html>

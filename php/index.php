@@ -5,6 +5,8 @@ declare(strict_types=1);
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header('Content-Type: application/json');
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     include 'gate.php';
     if (isset($_GET['fetchProp'])) {
@@ -20,9 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
 } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include 'gate.php';
-    if (isset($_POST['createProperty'])) {
+    if (isset($_POST['files'])) {
         createPropertyListing($_POST);
-    } elseif (isset($_POST['updateProperty'])) {
+    } elseif (isset($_POST['files'])) {
         updatePropertyListing($_POST);
     } elseif (isset($_POST['createAgent'])) {
         createAgent($_POST);
