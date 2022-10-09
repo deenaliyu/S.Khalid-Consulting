@@ -55,39 +55,17 @@
 
     <section id="imagesSection" class="mt-5">
       <div class="container">
-        <h5 class="mb-3" >A 12 units of 2bedroom flats at completion state </h5>
+        <h5 class="mb-3" >Gallery</h5>
         <section id="main-carousel" class="splide" aria-label="My Awesome Gallery">
           <div class="splide__track">
-            <ul class="splide__list">
-              <li class="splide__slide">
-                <img src="./img/IMG-20220926-WA0027.jpg" alt="">
-              </li>
-              <li class="splide__slide">
-                <img src="./img/IMG-20220926-WA0089.jpg" alt="">
-              </li>
-              <li class="splide__slide">
-                <img src="./img/IMG-20220926-WA0091.jpg" alt="">
-              </li>
-              <li class="splide__slide">
-                <img src="./img/IMG-20220926-WA0093.jpg" alt="">
-              </li>
+            <ul class="splide__list" id="gallery">
+              
             </ul>
           </div>
         </section>
 
         <ul id="thumbnails" class="thumbnails">
-          <li class="thumbnail">
-            <img src="./img/IMG-20220926-WA0027.jpg" alt="">
-          </li>
-          <li class="thumbnail">
-            <img src="./img/IMG-20220926-WA0089.jpg" alt="">
-          </li>
-          <li class="thumbnail">
-            <img src="./img/IMG-20220926-WA0091.jpg" alt="">
-          </li>
-          <li class="thumbnail">
-            <img src="./img/IMG-20220926-WA0093.jpg" alt="">
-          </li>
+          
         </ul>
       </div>
     </section>
@@ -120,40 +98,7 @@
   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="lib/splideJs/dist/js/splide.min.js"></script>
   <script>
-    var splide = new Splide('#main-carousel', {
-      pagination: false,
-      type: 'loop',
-      autoplay: true
-    });
-    var thumbnails = document.getElementsByClassName('thumbnail');
-    var current;
-
-    for (var i = 0; i < thumbnails.length; i++) {
-      initThumbnail(thumbnails[i], i);
-    }
-
-    // The function to initialize each thumbnail.
-    function initThumbnail(thumbnail, index) {
-      thumbnail.addEventListener('click', function () {
-        // move the carousel
-        splide.go(index);
-      });
-    }
-
-    splide.on('mounted move', function () {
-      if (current) {
-        current.classList.remove('is-active');
-      }
-
-      // Splide#index returns the latest slide index:
-      var thumbnail = thumbnails[splide.index];
-
-      if (thumbnail) {
-        thumbnail.classList.add('is-active');
-        current = thumbnail;
-      }
-    });
-    splide.mount();
+    
   </script>
 
 
