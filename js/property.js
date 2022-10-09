@@ -10,8 +10,7 @@ async function getProperty() {
     if (property.id == thePropId) {
       $('#propertyInfo').html(`
         <li class="mb-3 font-bold text-black" style="font-size: 18px">Description</li>
-        <p>${property.description}.
-        </p>
+        <p>${property.description}.</p>
         <p>${property.about}</p>
         <li class="mb-3 font-bold text-black" style="font-size: 18px">Feautures</li>
         <p class="location"><i class="fa fa-map-marker-alt text-primary"></i> ${property.location}.</p>
