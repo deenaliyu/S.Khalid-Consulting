@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     include 'gate.php';
     if (isset($_POST['files'])) {
         createPropertyListing($_POST);
-    } elseif (isset($_POST['files'])) {
+    } elseif (isset($_POST['updater'])) {
         updatePropertyListing($_POST);
     } elseif (isset($_POST['createAgent'])) {
         createAgent($_POST);

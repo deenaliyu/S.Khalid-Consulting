@@ -214,6 +214,8 @@ function updatePropertyListing(){
     }
 }
 
+
+
 function fetchAgent(){
     include "config/index.php";
 
