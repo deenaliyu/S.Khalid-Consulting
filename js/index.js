@@ -3,8 +3,8 @@ $('#footer').html(`
 <div class="row g-5">
   <div class="col-lg-3 col-md-6">
     <h5 class="text-white mb-4">Get In Touch</h5>
-    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Bank road, Kano, Nigeria</p>
+    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>2347038181626</p>
     <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
     <div class="d-flex pt-2">
       <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-twitter"></i></a>
@@ -96,8 +96,8 @@ $('#theHeader').html(`
   <div class="col-md-6 p-5" style="margin-top: 8rem">
     <h1 class="display-5 animated fadeIn mb-4">Find A <span class="text-primary">Perfect Home</span> To Live In
     </h1>
-    <p class="animated fadeIn mb-4 pb-2">Our vision is to build a reputable estate firm where integrity
-     will serve as a key to alasting professionalism.</p>
+    <p class="animated fadeIn mb-4 pb-2" style="font-size: 20px; font-weight:bolder">Our vision is to build a reputable estate firm where integrity
+     will serve as a key to a lasting professionalism.</p>
     <a href="#property-section" class="btn btn-primary py-3 px-5 me-3 animated fadeIn">Get Started</a>
   </div>
   <div class="col-md-6 animated fadeIn">
@@ -120,7 +120,7 @@ const fetchProperties = async () => {
   properties.map(property => {
     $('#showContent').append(`
     <div class="col-lg-4 col-md-6 propCard wow fadeInUp" data-wow-delay="0.3s" data-id="${property.id}" style="cursor: pointer">
-      <div class="property-item rounded overflow-hidden">
+      <div class="property-item rounded overflow-hidden" id="proper">
         <div class="position-relative overflow-hidden">
           <img class="img-fluid" src="./img/properties/${property.image}" alt="">
           <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For ${property.listing_type}
