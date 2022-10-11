@@ -111,6 +111,9 @@ $('#theHeader').html(`
       <div class="owl-carousel-item">
         <img class="img-fluid" src="img/IMG-20220926-WA0053.jpg" alt="">
       </div>
+      <div class="owl-carousel-item">
+        <img class="img-fluid" src="img/new.jpeg" alt="">
+      </div>
     </div>
   </div>
 </div>
