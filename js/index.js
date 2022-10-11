@@ -3,9 +3,12 @@ $('#footer').html(`
 <div class="row g-5">
   <div class="col-lg-3 col-md-6">
     <h5 class="text-white mb-4">Get In Touch</h5>
-    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Bank road, Kano, Nigeria</p>
-    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>2347038181626</p>
-    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+    <p class="mb-2">Kano Office</p>
+    <p class="mb-3"><i class="fa fa-map-marker-alt me-3"></i>8, Lagos Street(Lukat House), Kano, Nigeria</p>
+    <p class="mb-2">Abuja Office</p>
+    <p class="mb-3"><i class="fa fa-map-marker-alt me-3"></i>17, Hassan Gwani Street, Wuse Zone 4, Abuja, Nigeria</p>
+    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>2348034586849</p>
+    <p class="mb-2"><i class="fa fa-envelope me-3"></i>inquries@khalid.ng</p>
     <div class="d-flex pt-2">
       <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-twitter"></i></a>
       <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-facebook-f"></i></a>
