@@ -1,5 +1,5 @@
 const image_input = document.querySelector("#image");
-let imgURL = ""
+let imgURE = ""
 image_input.addEventListener("change", function () {
   const reader = new FileReader();
   reader.addEventListener("load", () => {
@@ -7,7 +7,7 @@ image_input.addEventListener("change", function () {
     document.querySelector(
       "#display-image"
     ).style.backgroundImage = `url(${uploaded_image})`;
-    imgURL = uploaded_image
+    imgURE = uploaded_image
   });
   reader.readAsDataURL(this.files[0]);
 });

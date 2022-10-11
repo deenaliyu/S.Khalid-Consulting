@@ -44,7 +44,6 @@ const fetchProperties = async () => {
           </div>
           <div class="mb-3">
             <input type="file" id="image" name="image" class="form-control">
-            <div id="display-image"></div>
           </div>
           <div class="mb-3">
             <label for="" class="form-label">Property-type</label>
@@ -91,21 +90,22 @@ fetchProperties()
 
 
 
-const image_input = document.querySelector("#image");
-let imgURL = ""
-image_input.addEventListener("change", function () {
-  const reader = new FileReader();
-  reader.addEventListener("load", () => {
-    const uploaded_image = reader.result;
-    document.querySelector(
-      "#display-image"
-    ).style.backgroundImage = `url(${uploaded_image})`;
-    imgURL = uploaded_image
-  });
-  reader.readAsDataURL(this.files[0]);
-});
-let upload = document.getElementById("upload") 
-upload.addEventListener("click", function (e) {
+// const imag_input = document.querySelector("#image");
+// let imgURL = ""
+// imag_input.addEventListener("change", function () {
+//   const reader = new FileReader();
+//   reader.addEventListener("load", () => {
+//     const uploaded_imag = reader.result;
+//     document.querySelector(
+//       "#display-image"
+//     ).style.backgroundImage = `url(${uploaded_imag})`;
+//     imgURL = uploaded_imag
+//   });
+//   reader.readAsDataURL(this.files[0]);
+// });
+
+let uploader = document.getElementById("upload") 
+uploader.addEventListener("click", function (e) {
   e.preventDefault();
   let HOST = "http://localhost/sKhalid/php";
 
