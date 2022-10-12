@@ -1,4 +1,23 @@
 <?php
+
+function login($username, $password)
+{
+    include "config/index.php";
+        $query_User_reA = sprintf("SELECT * FROM `admin` WHERE username='{$username}'");
+        $User_reA = mysqli_query($sKhalid, $query_User_reA) or die(mysqli_error($sKhalid));
+        $row_User_reA = mysqli_fetch_assoc($User_reA);
+        $totalRows_User_reA = mysqli_num_rows($User_reA);
+        if ($totalRows_User_reA > 0) {
+            if ($row_User_reA['password'] == $password) {
+                $arr = ['status' => 1, 'message' => 'Logging you in'];
+                exit(json_encode($arr));
+            }
+        }else{
+            $arr = ['status' => 0, 'message' => 'Wrong credentials'];
+                exit(json_encode($arr));
+        }
+}
+
 function fetchAllProperty(){
     include "config/index.php";
     $query_User_re = sprintf("SELECT * FROM property_l");

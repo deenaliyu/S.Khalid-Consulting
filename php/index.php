@@ -9,7 +9,11 @@ header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     include 'gate.php';
-    if (isset($_GET['fetchProp'])) {
+    if (isset($_GET['login'])) {
+        $username = $_GET['email'];
+        $password = $_GET['password'];
+        login($username, $password);
+    }elseif (isset($_GET['fetchProp'])) {
         fetchProperty();
     } elseif (isset($_GET['fetchAllProp'])) {
         fetchAllProperty();
