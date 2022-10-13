@@ -118,8 +118,8 @@ $('#theHeader').html(`
   </div>
 </div>
 `)
-let HOST = "http://localhost:8080/S.Khalid-Consulting/php"
-// let HOST = "http://localhost/sKhalid/php"
+// let HOST = "http://localhost:8080/S.Khalid-Consulting/php"
+let HOST = "http://localhost/sKhalid/php"
 const fetchProperties = async () => {
   const response = await fetch(`${HOST}/?fetchProp`)
   const properties = await response.json()
