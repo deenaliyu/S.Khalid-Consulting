@@ -10,10 +10,10 @@ $('#footer').html(`
     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>2348034586849</p>
     <p class="mb-2"><i class="fa fa-envelope me-3"></i>inquries@khalid.ng</p>
     <div class="d-flex pt-2">
-      <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-twitter"></i></a>
-      <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-facebook-f"></i></a>
-      <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-youtube"></i></a>
-      <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-linkedin-in"></i></a>
+     
+      <a class="btn btn-outline-light btn-social" href="https://web.facebook.com/skhalidconsultants/?_rdc=1&_rdr"><i class="fab fa-facebook-f"></i></a>
+      <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/s.khalidconsultants/"><i class="fab fa-instagram"></i></a>
+      
     </div>
   </div>
   <div class="col-lg-3 col-md-6">
